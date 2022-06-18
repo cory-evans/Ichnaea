@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package position;
+
+option go_package = "github.com/cory-evans/Ichnaea/pkg/proto/position";
+
+
+service PositionService {
+	rpc GetPosition(GetPositionRequest) returns (GetPositionResponse) {}
+}
+
+message Location {
+	string latitude = 1;
+	string longitude = 2;
+	string altitude = 3;
+}
+
+message GetPositionRequest {
+	string device_id = 1;
+}
+
+message GetPositionResponse {
+	optional Location location = 1;
+}

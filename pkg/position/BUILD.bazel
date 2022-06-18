@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "position",
+    srcs = [
+        "alerts.go",
+        "live.go",
+        "position.go",
+        "service.go",
+    ],
+    importpath = "github.com/cory-evans/Ichnaea/pkg/position",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/proto/position",
+        "@org_golang_google_grpc//:go_default_library",
+    ],
+)
