@@ -5,8 +5,35 @@ package position;
 option go_package = "github.com/cory-evans/Ichnaea/pkg/proto/position";
 
 
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+	info: {
+		title: "Position Service";
+		version: "1.0";
+	};
+	consumes: "application/json";
+	produces: "application/json";
+	security_definitions: {
+		security: {
+			key: "ApiKeyAuth";
+			value: {
+				type: TYPE_API_KEY;
+				in: IN_HEADER;
+				name: "Authorization";
+			};
+		}
+	};
+	base_path: "/position";
+};
+
 service PositionService {
-	rpc GetPosition(GetPositionRequest) returns (GetPositionResponse) {}
+	rpc GetPosition(GetPositionRequest) returns (GetPositionResponse) {
+		option (google.api.http) = {
+			get: "/location/{device_id}"
+		};
+	}
 }
 
 message Location {

@@ -1,0 +1,15 @@
+{
+	"name": "go",
+	"build": {
+		"dockerfile": "./Dockerfile"
+	},
+	"settings": {
+		"editor.formatOnSave": true,
+		"go.toolsManagement.checkForUpdates": "local",
+		"go.useLanguageServer": true,
+		"go.gopath": "/go",
+		"go.goroot": "/usr/local/go"
+	},
+	"extensions": ["golang.go", "EditorConfig.EditorConfig", "bazelbuild.vscode-bazel", "vivaxy.vscode-conventional-commits"],
+	"remoteUser": "vscode"
+}
